@@ -4,13 +4,17 @@ Reference
 .. module:: urlfetch
    :platform: Unix, Windows
    :synopsis: HTTP Client
-.. moduleauthor:: Elyes Du <lyxint@gmail.com>
+.. moduleauthor:: Yue Du <ifduyue@gmail.com>
 
 .. autoclass:: Response
     :members:
+    :undoc-members:
+    :private-members:
 
 .. autoclass:: Session
     :members:
+    :undoc-members:
+    :private-members:
 
 
 .. autofunction:: request

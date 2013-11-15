@@ -5,7 +5,7 @@
 urlfetch documentation
 ======================
 
-urlfetch is a simple, lightweigth and easy to use HTTP client for `Python <http://python.org/>`_.
+urlfetch is a simple, lightweight and easy to use HTTP client for `Python <http://python.org/>`_.
 It is distributed as a single file module and has no depencencies other than the
 `Python Standard Library <http://docs.python.org/library/>`_.
 
@@ -24,10 +24,10 @@ OR::
 
     $ easy_install urlfetch --upgrade
 
-OR grab the latest source from
-`github lyxint/urlfetch <https://github.com/lyxint/urlfetch>`_::
+OR grab the latest source from github
+`ifduyue/urlfetch <https://github.com/ifduyue/urlfetch>`_::
     
-    $ git clone git://github.com/lyxint/urlfetch.git
+    $ git clone git://github.com/ifduyue/urlfetch.git
     $ cd urlfetch
     $ python setup.py install
     
@@ -55,6 +55,7 @@ User's Guide
     examples
     reference
     changelog
+    contributors
 
 License
 =========

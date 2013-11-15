@@ -1,7 +1,10 @@
 import bottle
 from bottle import request, response
 import json
+import hashlib
 
+def md5sum(b):
+    return hashlib.md5(b).hexdigest()
 
 def mb_code(s, encoding='utf-8'):
     for c in ('utf-8', 'gb2312', 'gbk', 'gb18030', 'big5'):
@@ -35,7 +38,7 @@ def normal_formsdict():
     d['files'] = dict(request.files)
     for i in d['files']:
         del d['post'][i]
-        d['files'][i] = (d['files'][i].name, d['files'][i].filename, mb_code(d['files'][i].value))
+        d['files'][i] = (d['files'][i].name, d['files'][i].filename, md5sum(d['files'][i].value))
     d['cookies'] = dict(request.cookies)
     return json.dumps(d)
 
@@ -80,5 +83,11 @@ try:
 except:
     port = 8800
 
-bottle.debug(True)
-bottle.run(app=app, host='127.0.0.1', port=port, reloader=True)
+quiet = False
+for arg in sys.argv[1:]:
+    if arg == 'quiet':
+        quiet = True
+        break
+
+bottle.debug(not quiet)
+bottle.run(app=app, host='127.0.0.1', port=port, reloader=True, quiet=quiet, debug=not quiet,)

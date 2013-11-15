@@ -1,9 +1,13 @@
 urlfetch
 ========
 
-Description
------------
-An easy to use HTTP client for Python.
+.. |travis-ci-image| image:: https://travis-ci.org/ifduyue/urlfetch.png
+.. _travis-ci-image: https://travis-ci.org/ifduyue/urlfetch
+
+|travis-ci-image|_
+
+urlfetch is a simple, lightweigth and easy to use HTTP client for Python. 
+It is distributed as a single file module and has no depencencies other than the Python Standard Library.
 
 Installation
 -------------
@@ -45,8 +49,3 @@ Upload file
 
     print response.status, response.content
 
-
-Contributors
--------------
-
-* Andrey Usov <https://github.com/ownport>
