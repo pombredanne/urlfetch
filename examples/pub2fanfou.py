@@ -5,11 +5,9 @@ import re
 
 def pub2fanfou(username, password, status):
     #获取表单token
-    response = urlfetch.fetch(
-        "http://m.fanfou.com/"
-    )
+    response = urlfetch.fetch("http://m.fanfou.com/")
     token = re.search('''name="token".*?value="(.*?)"''', response.body).group(1)
-    
+
     #登录
     response = urlfetch.fetch(
         "http://m.fanfou.com/",
@@ -24,21 +22,21 @@ def pub2fanfou(username, password, status):
             "Referer": "http://m.fanfou.com/",
         }
     )
-    
+
     #cookies
-    cookies = urlfetch.sc2cs(response.getheader('Set-Cookie'))
-    print cookies
-    
+    cookiestring = response.cookiestring
+    print cookiestring
+
     #获取表单token
     response = urlfetch.fetch(
         "http://m.fanfou.com/home",
         headers = {
-            'Cookie': cookies,
+            'Cookie': cookiestring,
             'Referer': "http://m.fanfou.com/home",
         }
     )
     token = re.search('''name="token".*?value="(.*?)"''', response.body).group(1)
-    
+
     #发布状态
     response = urlfetch.fetch(
         "http://m.fanfou.com/",
@@ -48,7 +46,7 @@ def pub2fanfou(username, password, status):
             'action': 'msg.post',
         },
         headers = {
-            'Cookie': cookies,
+            'Cookie': cookiestring,
             'Referer': "http://m.fanfou.com/home",
         }
     )
@@ -56,6 +54,3 @@ def pub2fanfou(username, password, status):
 if __name__ == '__main__':
     import sys
     pub2fanfou(*sys.argv[1:4])
-    
-
-

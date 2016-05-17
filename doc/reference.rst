@@ -29,17 +29,23 @@ Reference
 .. autofunction:: trace
 .. autofunction:: patch
 
+Exceptions
+~~~~~~~~~~~
+
+.. autoclass:: UrlfetchException
+.. autoclass:: ContentLimitExceeded
+.. autoclass:: URLError
+.. autoclass:: ContentDecodingError
+.. autoclass:: TooManyRedirects
+.. autoclass:: Timeout
+
 helpers
 ~~~~~~~~~~~
 
-.. autofunction:: decode_gzip
-.. autofunction:: decode_deflate
 .. autofunction:: parse_url
 .. autofunction:: get_proxies_from_environ
 .. autofunction:: mb_code
-.. autofunction:: sc2cs
 .. autofunction:: random_useragent
-.. autofunction:: import_object
 .. autofunction:: url_concat
 .. autofunction:: choose_boundary
 .. autofunction:: encode_multipart
